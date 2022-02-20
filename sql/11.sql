@@ -5,8 +5,8 @@ SELECT DISTINCT actor.first_name || ' ' || actor.last_name AS "Actor Name"
 FROM actor
 JOIN film_actor USING (actor_id)
 JOIN (
-    SELECT film_id, unnest(special_features)
+    SELECT film_id, unnest(special_features) AS features
     FROM film
 ) f0 USING(film_id)
 WHERE NOT (film_id IS NULL)
-    AND f0.unnest = 'Behind the Scenes';
+    AND f0.features = 'Behind the Scenes';
