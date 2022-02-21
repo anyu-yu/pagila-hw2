@@ -9,4 +9,5 @@ JOIN (
     FROM film
 ) f0 USING(film_id)
 WHERE NOT (film_id IS NULL)
-    AND f0.features = 'Behind the Scenes';
+    AND f0.features = 'Behind the Scenes'
+ORDER BY "Actor Name";
